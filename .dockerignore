@@ -1,0 +1,67 @@
+# ============================================================
+# Docker Ignore — Kurangi Build Context & Percepat Build
+# ============================================================
+
+# Dependencies (di-install ulang di dalam container)
+node_modules
+.npm
+
+# Build output (di-build ulang di dalam container)
+.next
+dist
+build
+
+# Development config (.env TETAP di-copy untuk build, hanya exclude .env.* dan .env.example tetap ikut)
+.env.*
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE & Editors
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# AI / Cursor / Agents
+.cursor
+.agents
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test & Coverage
+coverage
+.nyc_output
+
+# Temporary files
+tmp
+temp
+.cache
+
+# Docker (jangan recursive)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Markdown / Docs (opsional — hapus kalau tidak perlu di image)
+*.md
+!README.md
+
+# Uploads folder (keep directory, exclude files — mount as volume)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Scripts yang hanya dipakai dev (entrypoint tetap di-copy via explicit COPY)
+scripts/dev.js
+scripts/check-rates.ts
+scripts/test-*.ts
